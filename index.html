@@ -1,9 +1,14 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
     <title>Mortal Kombat 2 - SNES</title>
 
     <style>
@@ -11,7 +16,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -23,35 +29,66 @@
         #game-container {
             width: 100%;
             height: 100%;
+            position: relative;
             background: #000;
+        }
+
+        canvas {
+            touch-action: none;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="game-container"></div>
+<div id="game-container"></div>
 
-    <script>
-        // Contenedor donde se ejecutará el juego
-        EJS_player = "#game-container";
+<script>
+    // ==============================
+    // CONFIGURACIÓN EMULATORJS
+    // ==============================
 
-        // Sistema: Super Nintendo
-        EJS_core = "snes";
+    // Contenedor
+    var EJS_player = "#game-container";
 
-        // Ruta de la ROM
-        EJS_gameUrl = "./MortalKombat2.sfc";
+    // Super Nintendo
+    var EJS_core = "snes";
 
-        // Archivos de EmulatorJS
-        EJS_pathtodata =
-            "https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/";
+    // ROM
+    var EJS_gameUrl = "./MortalKombat2.sfc";
 
-        // Iniciar automáticamente al cargar
-        EJS_startOnLoaded = true;
-    </script>
+    // EmulatorJS
+    var EJS_pathtodata =
+        "https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/";
 
-    <script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js"></script>
+    // Iniciar automáticamente
+    var EJS_startOnLoaded = true;
+
+    // ¡PANTALLA COMPLETA!
+    var EJS_fullscreenOnLoaded = true;
+
+    // Menú de EmulatorJS
+    var EJS_menuEnabled = true;
+
+    // Controles
+    var EJS_controlScheme = 0;
+
+    // Cargar EmulatorJS
+    var script = document.createElement("script");
+
+    script.src = EJS_pathtodata + "loader.js";
+
+    script.onload = function () {
+        console.log("EmulatorJS cargado correctamente.");
+    };
+
+    script.onerror = function () {
+        console.error("No se pudo cargar EmulatorJS.");
+        alert("Error: no se pudo cargar EmulatorJS.");
+    };
+
+    document.head.appendChild(script);
+</script>
 
 </body>
 </html>
-```
