@@ -1,35 +1,57 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mortalkombat2</title>
-<style>
-/* Esto elimina los bordes y pone el fondo negro para que parezca una app */
-body, html { margin: 0; padding: 0; height: 100%; background-color: #000; overflow: hidden; }
-#game-container { width: 100%; height: 100%; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mortal Kombat 2 - SNES</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        #game-container {
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+    </style>
 </head>
+
 <body>
-<!-- Aquí es donde aparecerá la pantalla del juego -->
-<div id="game-container"></div>
 
-<script>
-// Configuración del emulador
-EJS_player = '#game-container'; 
+    <div id="game-container"></div>
 
-// 'gb' es para Game Boy original. Si usas un juego de Color, cámbialo a 'gbc'
-EJS_core = 'Snes9x'; 
+    <script>
+        // Contenedor donde se ejecutará el juego
+        EJS_player = "#game-container";
 
-// Aquí pones el nombre EXACTO de tu archivo ROM que subiste a GitHub
-EJS_gameUrl = 'MortalKombat2.sfc';
+        // Sistema: Super Nintendo
+        EJS_core = "snes";
 
+        // Ruta de la ROM
+        EJS_gameUrl = "./MortalKombat2.sfc";
 
-EJS_startOnLoaded = true; 
+        // Archivos de EmulatorJS
+        EJS_pathtodata =
+            "https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/";
 
-// Esto carga el motor del emulador directamente desde los servidores de EmulatorJS
-EJS_pathtodata = 'https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/';
-</script>
-<script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js"></script>
+        // Iniciar automáticamente al cargar
+        EJS_startOnLoaded = true;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/ethanaobrien/emulatorjs@main/data/loader.js"></script>
+
 </body>
 </html>
+```
